@@ -24,7 +24,7 @@ export default function Home() {
   const [head, setHead] = useState<string | null>(null);
   const [thing, setThing] = useState<string | null>(null);
   const [caption, setCaption] = useState("");
-  const [ink, setInk] = useState(colors[0]);
+  const [ink, setInk] = useState("#000000");
   const [copied, setCopied] = useState(false);
 
   const render = useCallback(async () => {
@@ -38,15 +38,11 @@ export default function Home() {
     if (head) ctx.drawImage(await loadImage(`/characters/heads/head-${head}.png`), 0, 0, 500, 500);
     if (thing) ctx.drawImage(await loadImage(`/characters/things/thing-${thing}.png`), 0, 0, 500, 500);
     if (caption.trim()) {
-      ctx.font = "900 34px Arial Black, Arial";
+      ctx.font = "40px 'Courier New', Courier, monospace";
       ctx.textAlign = "center";
-      ctx.textBaseline = "bottom";
-      ctx.lineJoin = "round";
-      ctx.lineWidth = 8;
-      ctx.strokeStyle = "#fff";
-      ctx.strokeText(caption.trim().toUpperCase().slice(0, 28), 250, 475, 455);
+      ctx.textBaseline = "top";
       ctx.fillStyle = ink;
-      ctx.fillText(caption.trim().toUpperCase().slice(0, 28), 250, 475, 455);
+      ctx.fillText(caption.trim().slice(0, 28), 250, 20, 455);
     }
   }, [head, thing, caption, ink]);
 
@@ -70,31 +66,27 @@ export default function Home() {
   };
 
   const reset = () => { setHead(null); setThing(null); setCaption(""); };
+  const shuffle = () => {
+    setHead(heads[Math.floor(Math.random() * heads.length)]);
+    setThing(things[Math.floor(Math.random() * things.length)]);
+  };
 
   return (
     <main className="site-shell" id="top">
       <section className="brand-panel" aria-label="Bingo">
         <div className="brand-copy">
-          <h1>bingo<br /><span>the</span><br />community<br />monkey</h1>
+          <h1>bingo&nbsp; <span>the</span>&nbsp; monkey</h1>
           <div className="swatches" aria-hidden="true">
             {colors.map((color) => <i key={color} style={{ background: color }} />)}
           </div>
         </div>
-        <p className="kicker">PFP LAB / COMMUNITY MADE</p>
-        <img className="brand-art" src="/artwork/bingo.png" alt="Bingo the monkey" />
+        <p className="kicker">PFP GENERATOR</p>
       </section>
 
       <section className="generator">
-        <div className="generator-head">
-          <div>
-            <span className="eyebrow">BUILD YOUR BINGO</span>
-            <h2>Make it yours.</h2>
-          </div>
-          <span className="sol-pill">PFP MAKER</span>
-        </div>
-
         <div className="workspace">
           <div className="preview-wrap">
+            <span className="preview-label">LIVE PREVIEW</span>
             <canvas ref={canvasRef} width={500} height={500} aria-label="Your Bingo profile picture preview" />
             <span className="corner tl">+</span><span className="corner tr">+</span>
             <span className="corner bl">+</span><span className="corner br">+</span>
@@ -111,12 +103,16 @@ export default function Home() {
             <button className={tab === "head" ? "active" : ""} onClick={() => setTab("head")}>Head</button>
             <button className={tab === "thing" ? "active" : ""} onClick={() => setTab("thing")}>Thing</button>
             <button className={tab === "text" ? "active" : ""} onClick={() => setTab("text")}>Text</button>
+            <button className="shuffle" onClick={shuffle}>↻ Shuffle</button>
           </nav>
           {tab === "head" && (
             <div className="asset-grid">
               {heads.map((id) => (
                 <button key={id} className={head === id ? "selected" : ""} onClick={() => setHead(head === id ? null : id)} aria-label={`Bingo head ${id}`}>
-                  <img src={`/characters/heads/head-${id}.png`} alt="" />
+                  <span className="trait-preview">
+                    <img src="/characters/base-monkey.png" alt="" />
+                    <img src={`/characters/heads/head-${id}.png`} alt="" />
+                  </span>
                 </button>
               ))}
             </div>
@@ -125,7 +121,10 @@ export default function Home() {
             <div className="asset-grid">
               {things.map((id) => (
                 <button key={id} className={thing === id ? "selected" : ""} onClick={() => setThing(thing === id ? null : id)} aria-label={`Bingo accessory ${id}`}>
-                  <img src={`/characters/things/thing-${id}.png`} alt="" />
+                  <span className="trait-preview">
+                    <img src="/characters/base-monkey.png" alt="" />
+                    <img src={`/characters/things/thing-${id}.png`} alt="" />
+                  </span>
                 </button>
               ))}
             </div>
@@ -133,20 +132,36 @@ export default function Home() {
           {tab === "text" && (
             <div className="text-tools">
               <label>Say something<input value={caption} onChange={(e) => setCaption(e.target.value)} maxLength={28} placeholder="BINGO!" /></label>
-              <fieldset><legend>Text color</legend>{colors.map((color) => <button key={color} className={ink === color ? "selected" : ""} style={{ background: color }} onClick={() => setInk(color)} aria-label={`Use ${color}`} />)}</fieldset>
+              <label className="color-picker">
+                Text color
+                <span>
+                  <input type="color" value={ink} onChange={(e) => setInk(e.target.value)} aria-label="Choose any text color" />
+                  <code>{ink}</code>
+                </span>
+              </label>
             </div>
           )}
         </div>
       </section>
 
       <aside className="rail">
-        <div className="rail-mark">B</div>
-        <p>COMMUNITY BORN<br />MADE TO BONK</p>
-        <img src="/artwork/bingo-bonkin.gif" alt="Bingo bonking" />
+        <div className="rail-cards">
+          <div className="rail-card">
+            <i className="rail-icon"><img src="/characters/base-monkey.png" alt="" /><img src="/characters/heads/head-01.png" alt="" /></i>
+            <span>DexScreener</span>
+          </div>
+          <div className="rail-card">
+            <i className="rail-icon"><img src="/characters/base-monkey.png" alt="" /><img src="/characters/heads/head-05.png" alt="" /></i>
+            <span>gmgn.ai</span>
+          </div>
+          <div className="rail-card">
+            <i className="rail-icon"><img src="/characters/base-monkey.png" alt="" /><img src="/characters/heads/head-12.png" alt="" /></i>
+            <span>Twitter / X</span>
+          </div>
+        </div>
         <div className="links">
-          <a href="#top">Back to top ↑</a>
-          <span>DexScreener — soon</span>
-          <span>Contract — soon</span>
+          <label>Contract Address:</label>
+          <div className="contract-row"><code>Coming soon</code><button onClick={() => void navigator.clipboard?.writeText("Coming soon")}>Copy</button></div>
         </div>
       </aside>
     </main>
