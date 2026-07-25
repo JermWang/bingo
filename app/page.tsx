@@ -8,6 +8,7 @@ const heads = [
 ];
 const things = ["1","2","4","5","6","7","8","9","10","11","12","13","14","15"];
 const colors = ["#ead1b1", "#a77859", "#30272e"];
+const contractAddress = "jMhyvYtfMR8vfd8Cr8r6DBiStRCt27wywqujyzDpump";
 
 function loadImage(src: string) {
   return new Promise<HTMLImageElement>((resolve, reject) => {
@@ -161,7 +162,7 @@ export default function Home() {
         </div>
         <div className="links">
           <label>Contract Address:</label>
-          <div className="contract-row"><code>Coming soon</code><button onClick={() => void navigator.clipboard?.writeText("Coming soon")}>Copy</button></div>
+          <div className="contract-row"><code>{contractAddress}</code><button onClick={() => void navigator.clipboard?.writeText(contractAddress)}>Copy</button></div>
         </div>
       </aside>
     </main>
