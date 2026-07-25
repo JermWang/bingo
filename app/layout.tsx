@@ -13,7 +13,11 @@ export const metadata: Metadata = {
   ),
   title: "Bingo the Monkey — PFP Generator",
   description: "Build, copy, and download your own Bingo PFP.",
-  icons: { icon: "/artwork/bingo.png" },
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png", sizes: "512x512" }],
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: { title: "Bingo the Monkey", description: "Make your Bingo.", images: [{ url: "/og.png", width: 1500, height: 500 }] },
   twitter: { card: "summary_large_image", title: "Bingo the Monkey", description: "Make your Bingo.", images: ["/og.png"] },
 };
