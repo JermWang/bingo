@@ -155,10 +155,10 @@ export default function Home() {
             <i className="rail-icon"><img src="/characters/base-monkey.png" alt="" /><img src="/characters/heads/head-05.png" alt="" /></i>
             <span>gmgn.ai</span>
           </div>
-          <div className="rail-card">
+          <a className="rail-card" href="https://x.com/bingothemonk" target="_blank" rel="noopener noreferrer">
             <i className="rail-icon"><img src="/characters/base-monkey.png" alt="" /><img src="/characters/heads/head-12.png" alt="" /></i>
             <span>Twitter / X</span>
-          </div>
+          </a>
         </div>
         <div className="links">
           <label>Contract Address:</label>

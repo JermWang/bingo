@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico?v=3",
     apple: "/favicon.png?v=3",
   },
-  openGraph: { title: "Bingo the Monkey", description: "Make your Bingo.", images: [{ url: "/og.png", width: 2172, height: 724, alt: "Bingo the Monkey swinging through the jungle" }] },
-  twitter: { card: "summary_large_image", title: "Bingo the Monkey", description: "Make your Bingo.", images: ["/og.png"] },
+  openGraph: { title: "Bingo the Monkey", description: "Make your Bingo.", images: [{ url: "/og.png?v=2", width: 2172, height: 724, alt: "Bingo the Monkey swinging through the jungle" }] },
+  twitter: { card: "summary_large_image", title: "Bingo the Monkey", description: "Make your Bingo.", images: ["/og.png?v=2"] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

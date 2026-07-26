@@ -58,7 +58,7 @@ fieldset button.selected { outline:3px solid var(--purple); }
 .color-picker code { min-width:82px; padding:12px 10px; border:1px solid #d8d4e3; border-radius:4px; background:#fff; color:#4f4a5c; font:12px var(--font-mono); text-transform:lowercase; }
 .rail { grid-area:rail; padding:60px 40px; color:#171717; }
 .rail-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; text-align:center; }
-.rail-card { display:flex; flex-direction:column; align-items:center; gap:14px; padding:10px 4px; font-size:15px; transition:transform .2s ease; }
+.rail-card { display:flex; flex-direction:column; align-items:center; gap:14px; padding:10px 4px; font-size:15px; transition:transform .2s ease; text-decoration:none; color:inherit; }
 .rail-card:hover { transform:translateY(-3px); }
 .rail-icon { width:76px; height:76px; display:block; position:relative; background:transparent; border:0; }
 .rail-icon img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; transform:scale(1.9); transform-origin:center; }
