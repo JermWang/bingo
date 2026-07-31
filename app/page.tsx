@@ -51,7 +51,7 @@ export default function Home() {
 
   const download = () => {
     const a = document.createElement("a");
-    a.download = "bingo-pfp.png";
+    a.download = "rondo-pfp.png";
     a.href = canvasRef.current?.toDataURL("image/png") ?? "";
     a.click();
   };
@@ -74,9 +74,9 @@ export default function Home() {
 
   return (
     <main className="site-shell" id="top">
-      <section className="brand-panel" aria-label="Bingo">
+      <section className="brand-panel" aria-label="Rondo">
         <div className="brand-copy">
-          <h1>bingo&nbsp; <span>the</span>&nbsp; monkey</h1>
+          <h1>rondo&nbsp; <span>the</span>&nbsp; monkey</h1>
           <div className="swatches" aria-hidden="true">
             {colors.map((color) => <i key={color} style={{ background: color }} />)}
           </div>
@@ -88,7 +88,7 @@ export default function Home() {
         <div className="workspace">
           <div className="preview-wrap">
             <span className="preview-label">LIVE PREVIEW</span>
-            <canvas ref={canvasRef} width={500} height={500} aria-label="Your Bingo profile picture preview" />
+            <canvas ref={canvasRef} width={500} height={500} aria-label="Your Rondo profile picture preview" />
             <span className="corner tl">+</span><span className="corner tr">+</span>
             <span className="corner bl">+</span><span className="corner br">+</span>
           </div>
@@ -109,7 +109,7 @@ export default function Home() {
           {tab === "head" && (
             <div className="asset-grid">
               {heads.map((id) => (
-                <button key={id} className={head === id ? "selected" : ""} onClick={() => setHead(head === id ? null : id)} aria-label={`Bingo head ${id}`}>
+                <button key={id} className={head === id ? "selected" : ""} onClick={() => setHead(head === id ? null : id)} aria-label={`Rondo head ${id}`}>
                   <span className="trait-preview">
                     <img src="/characters/base-monkey.png" alt="" />
                     <img src={`/characters/heads/head-${id}.png`} alt="" />
@@ -121,7 +121,7 @@ export default function Home() {
           {tab === "thing" && (
             <div className="asset-grid">
               {things.map((id) => (
-                <button key={id} className={thing === id ? "selected" : ""} onClick={() => setThing(thing === id ? null : id)} aria-label={`Bingo accessory ${id}`}>
+                <button key={id} className={thing === id ? "selected" : ""} onClick={() => setThing(thing === id ? null : id)} aria-label={`Rondo accessory ${id}`}>
                   <span className="trait-preview">
                     <img src="/characters/base-monkey.png" alt="" />
                     <img src={`/characters/things/thing-${id}.png`} alt="" />
@@ -132,7 +132,7 @@ export default function Home() {
           )}
           {tab === "text" && (
             <div className="text-tools">
-              <label>Say something<input value={caption} onChange={(e) => setCaption(e.target.value)} maxLength={28} placeholder="BINGO!" /></label>
+              <label>Say something<input value={caption} onChange={(e) => setCaption(e.target.value)} maxLength={28} placeholder="RONDO!" /></label>
               <label className="color-picker">
                 Text color
                 <span>

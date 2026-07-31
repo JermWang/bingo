@@ -11,8 +11,8 @@ export const metadata: Metadata = {
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "http://localhost:3000",
   ),
-  title: "Bingo the Monkey — PFP Generator",
-  description: "Build, copy, and download your own Bingo PFP.",
+  title: "Rondo the Monkey — PFP Generator",
+  description: "Build, copy, and download your own Rondo PFP.",
   icons: {
     icon: [
       { url: "/favicon.ico?v=3", type: "image/x-icon", sizes: "64x64" },
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico?v=3",
     apple: "/favicon.png?v=3",
   },
-  openGraph: { title: "Bingo the Monkey", description: "Make your Bingo.", images: [{ url: "/og.png?v=2", width: 2172, height: 724, alt: "Bingo the Monkey swinging through the jungle" }] },
-  twitter: { card: "summary_large_image", title: "Bingo the Monkey", description: "Make your Bingo.", images: ["/og.png?v=2"] },
+  openGraph: { title: "Rondo the Monkey", description: "Make your Rondo.", images: [{ url: "/og.png?v=3", width: 2172, height: 724, alt: "Rondo the Monkey swinging through the jungle" }] },
+  twitter: { card: "summary_large_image", title: "Rondo the Monkey", description: "Make your Rondo.", images: ["/og.png?v=3"] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

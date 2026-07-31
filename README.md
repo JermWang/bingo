@@ -1,8 +1,7 @@
-# vinext-starter
+# Rondo the Monkey
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+The Rondo PFP generator: mix character traits, add typewriter-style text, and
+download or copy a finished profile picture.
 
 ## Prerequisites
 
