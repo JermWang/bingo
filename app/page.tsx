@@ -8,7 +8,7 @@ const heads = [
 ];
 const things = ["1","2","4","5","6","7","8","9","10","11","12","13","14","15"];
 const colors = ["#ead1b1", "#a77859", "#30272e"];
-const contractAddress = "jMhyvYtfMR8vfd8Cr8r6DBiStRCt27wywqujyzDpump";
+const contractAddress = "41LSCGvccVknYdubQSVSPVQN3vsajsYGChkK4RQMpump";
 
 function loadImage(src: string) {
   return new Promise<HTMLImageElement>((resolve, reject) => {
@@ -155,7 +155,7 @@ export default function Home() {
             <i className="rail-icon"><img src="/characters/base-monkey.png" alt="" /><img src="/characters/heads/head-05.png" alt="" /></i>
             <span>gmgn.ai</span>
           </div>
-          <a className="rail-card" href="https://x.com/bingothemonk" target="_blank" rel="noopener noreferrer">
+          <a className="rail-card" href="https://x.com/rondothemonkey" target="_blank" rel="noopener noreferrer">
             <i className="rail-icon"><img src="/characters/base-monkey.png" alt="" /><img src="/characters/heads/head-12.png" alt="" /></i>
             <span>Twitter / X</span>
           </a>
